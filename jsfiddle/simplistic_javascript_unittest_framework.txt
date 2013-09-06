@@ -1,0 +1,42 @@
+Visit jsfiddle.net and enter each of the code blocks in each of the tabs
+and you shouls see the results
+/****************
+HTML
+****************/
+<div id="test-items">
+   <ul id="test-list">
+    </ul>
+</div>   
+
+/****************
+JavaScript
+*****************/
+var zUnit = {};
+
+zUnit.assert = function(testValue, assertionMessage){
+    if(testValue){
+        $('#test-list').append("<li class='passed'>"+ assertionMessage +"</li>");   
+    }
+    else{
+        $('#test-list').append("<li class='failed'>"+ assertionMessage +"</li>");   
+    }
+};
+
+zUnit.assert(false, "Failure Example");
+zUnit.assert(true, "Pass Example");
+zUnit.assert(false, "test one should fail");
+zUnit.assert(true, "test two should pass");
+zUnit.assert(1 === 2, "the value on the left should equal the value on the right");
+               
+
+/*******************
+CSS
+********************/
+.failed{
+    color: red;
+    text-decoration: line-through;
+}
+
+.passed{
+    color: green;    
+}
