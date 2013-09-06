@@ -1,0 +1,61 @@
+PREQUISITES
+jQuery 1.9.1 should be selected in JSFIDDLE
+/*********************************************
+HTML SECTION
+
+**********************************************/
+<div id="number-list"></div>
+
+
+/*********************************************
+
+Javascript section for JsFiddle
+
+
+**********************************************/
+function sortByBubble(numberList, compare){
+ 
+    var totalInList = numberList.length;
+    
+    for(var i = 0 ; i < totalInList; i++){
+        for(var j = 0 ; j < totalInList; j++){
+            if(compare(numberList[i], numberList[j]) > 0){
+                //Swap the values 
+                var temp = numberList[i];
+                numberList[i] = numberList[j];
+                numberList[j] = temp;
+            }
+        }
+    }
+}
+
+function printList(numberList){
+    var numberListAsString = "";
+    var totalInList = numberList.length;
+    
+    for(var i = 0; i < totalInList; i++){
+     numberListAsString += numberList[i].toString() + ", ";   
+    }
+    
+    return numberListAsString;
+}
+var numbers = [4,2,8,3,5,1];
+var numberString = printList(numbers); 
+
+$('#number-list').append("<h2>Un-Sorted</h2>"); 
+$('#number-list').append("<p>" + numberString + "</p>");       
+
+sortByBubble(numbers, function(num1, num2){
+                 return num2 - num1;       
+       });
+numberString = printList(numbers);
+$('#number-list').append("<h2>Sorted Ascending</h2>"); 
+$('#number-list').append("<p>" + numberString + "</p>");              
+
+sortByBubble(numbers, function(num1, num2){
+                 return num1 - num2;       
+       });
+numberString = printList(numbers); 
+$('#number-list').append("<h2>Sorted Descending</h2>"); 
+$('#number-list').append("<p>" + numberString + "</p>");                 
+               
