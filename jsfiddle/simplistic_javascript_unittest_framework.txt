@@ -11,23 +11,27 @@ HTML
 /****************
 JavaScript
 *****************/
-var zUnit = {};
+if(typeof jQuery == 'undefined')
+   alert('jquery is missing');
+else{
+  
+   var zUnit = {};
 
-zUnit.assert = function(testValue, assertionMessage){
-    if(testValue){
-        $('#test-list').append("<li class='passed'>"+ assertionMessage +"</li>");   
-    }
-    else{
-        $('#test-list').append("<li class='failed'>"+ assertionMessage +"</li>");   
-    }
-};
+   zUnit.assert = function(testValue, assertionMessage){
+       if(testValue){
+           $('#test-list').append("<li class='passed'>"+ assertionMessage +"</li>");   
+       }
+       else{
+           $('#test-list').append("<li class='failed'>"+ assertionMessage +"</li>");   
+       }
+   };
 
-zUnit.assert(false, "Failure Example");
-zUnit.assert(true, "Pass Example");
-zUnit.assert(false, "test one should fail");
-zUnit.assert(true, "test two should pass");
-zUnit.assert(1 === 2, "the value on the left should equal the value on the right");
-               
+   zUnit.assert(false, "Failure Example");
+   zUnit.assert(true, "Pass Example");
+   zUnit.assert(false, "test one should fail");
+   zUnit.assert(true, "test two should pass");
+   zUnit.assert(1 === 2, "the value on the left should equal the value on the right");
+}       
 
 /*******************
 CSS
