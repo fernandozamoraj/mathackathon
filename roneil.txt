@@ -1,2 +1,3 @@
 this is my example create, commit, and push.
 now pushing with remote, branch
+pushed again after setting push.default to simple
